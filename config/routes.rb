@@ -1,19 +1,14 @@
 Rails.application.routes.draw do
-  root 'listings#index'
+ root 'listings#index'
+ get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+ get "/birthdate_session" => "sessions#birthdate_to_session"
 
- # get 'listings/index'
- # get 'listings/show'
+ resources :users, only: [:create, :edit] do
+  resource :password,
+  controller: "clearance/passwords",
+  only: [:create, :edit, :update]
+end
 
- # resources :listings
 
- resources :users, only: [:create] do
-    resource :password,
-    controller: "clearance/passwords",
-    only: [:create, :edit, :update]
- end
-
-#  resources :questions do
-#    resources :answers
-# end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
