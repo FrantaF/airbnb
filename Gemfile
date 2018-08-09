@@ -35,7 +35,7 @@ gem 'clearance', '~> 1.16', '>= 1.16.1'
 gem "figaro"
 gem 'omniauth', '~> 1.8', '>= 1.8.1'
 gem 'omniauth-google-oauth2', '~> 0.5.3'
-gem 'byebug'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
