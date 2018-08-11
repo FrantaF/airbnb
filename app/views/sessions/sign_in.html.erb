@@ -7,7 +7,7 @@
             <div class="panel">
                <h2>AirBnB - Sign in</h2>
                <!-- Login with google -->         
-               <%= link_to "Sign in with Google +", "/auth/google_oauth2", class: "btn btn-danger btn-gplus btn-lg" %>  
+               <%= link_to "Sign in with Google +", "/auth/google_oauth2", class: "btn btn-danger btn-gplus btn-lg btn-block" %>  
             </div>
 
             <div id="registrationBox" class="register">
@@ -18,7 +18,7 @@
                <%= render partial: '/sessions/login' %>
             </div>
 
-            <a href="#" style="margin-top: 5%;" onclick="registration_form_display()">Register</a>
+            <a href="#" id="display-box-trigger" style="margin-top: 5%;" onclick="event.preventDefault();registration_form_display();">Register</a>
 
          </div>
 
