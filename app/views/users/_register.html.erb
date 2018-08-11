@@ -1,4 +1,13 @@
-<%= form_for :user, url: users_path, id: "clearance", class: "sign-in" do |form| %>
+<div class="panel">
+
+   <h2>AirBnB - Sign in</h2>
+
+   <!-- Login with google -->         
+   <%= link_to "Sign in with Google +", "/auth/google_oauth2", class: "btn btn-danger btn-gplus btn-lg" %>                      
+
+</div>
+
+<%= form_for :user, url: users_path, id: "clearance", class: "sign-up" do |form| %>
 
 <div class="form-group email-signup">
   <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" name="user[email]">
@@ -22,4 +31,4 @@
 
 <button type="submit" class="btn btn-primary">Register</button>
 
-<%end%> 
+<%end%>  

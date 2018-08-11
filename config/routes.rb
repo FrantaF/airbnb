@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/login" => "users#login"
   get "/listings" => "listings#index"
   get "/users_edit" => "users#edit"
+  get "/search_listings" => "listings#search"
 
   resources :users, only: [:create, :edit] do
     resource :password,
