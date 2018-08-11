@@ -10,7 +10,7 @@ class User < ApplicationRecord
     first_name: auth_hash["info"]["first_name"],
     last_name: auth_hash["info"]["last_name"],
     email:auth_hash["info"]["email"],
-    birthdate: nil,
+    birthdate: Date.new,
     password: SecureRandom.hex(10)
     )   
    user.authentications << authentication

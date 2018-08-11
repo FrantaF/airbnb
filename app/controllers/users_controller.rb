@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
 
    def create
+      # byebug
       @user= User.new(user_params)
       if @user.save
          redirect_to sign_in_path
@@ -16,7 +17,7 @@ class UsersController < Clearance::UsersController
 
    private
 
-   def user_params
+   def user_params      
       params.require(:user).permit(:email, :first_name, :last_name, :birthdate, :password)
    end   
 end
