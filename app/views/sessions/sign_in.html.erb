@@ -4,11 +4,21 @@
       <div class="login-form">
          <div class="main-div">         
 
-            <%= render partial: '/users/register' %>
+            <div class="panel">
+               <h2>AirBnB - Sign in</h2>
+               <!-- Login with google -->         
+               <%= link_to "Sign in with Google +", "/auth/google_oauth2", class: "btn btn-danger btn-gplus btn-lg" %>  
+            </div>
 
-            <%= render partial: '/sessions/login' %>
+            <div id="registrationBox" class="register">
+               <%= render partial: '/users/register' %>
+            </div>   
 
-            <a href="#" style="margin-top: 5%;">or Register</a>
+            <div id="loginBox" class="login">
+               <%= render partial: '/sessions/login' %>
+            </div>
+
+            <a href="#" style="margin-top: 5%;" onclick="registration_form_display()">Register</a>
 
          </div>
 

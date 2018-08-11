@@ -17,3 +17,28 @@
 //= require turbolinks
 //= require_tree .
 
+function registration_form_display(){
+
+   let login = document.getElementById("loginBox");      
+   if (login.style.display === "none") {
+      logins.style.display = "block";
+   } else {
+    login.style.display = "none";
+ }
+
+ let registration = document.getElementById("registrationBox");      
+ if (registration.style.display === "none") {
+   registration.style.display = "block";
+   registration.innerHTML = "Login"
+} else {
+   registration.style.display = "none";
+   registration.innerHTML = "Register"
+}
+
+
+}
+
+
+
+
+
