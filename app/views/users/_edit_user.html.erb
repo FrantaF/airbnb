@@ -1,0 +1,26 @@
+<div class="login-form">
+   <div class="container">   
+      <div class="login-form">
+         <div class="main-div">
+            <div class="panel">
+
+               <h2>Edit details</h2>
+
+               <%= form_for :session, url: users_edit_path, id: "edit-user", class: "edit-user-info" do |form| %>
+
+               <div class="form-group email-signup">
+                  <input type="date" class="form-control" id="inputBirthdate" placeholder="Date of Birth" name="user[birthdate]">
+               </div>
+
+               <div class="form-group">
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="user[password]">
+               </div>
+
+               <button type="submit" class="btn btn-primary">Login</button>          
+
+               <% end %>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

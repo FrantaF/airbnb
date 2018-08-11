@@ -1,6 +1,6 @@
 class SessionsController < Clearance::SessionsController
 
-  def create_from_omniauth
+  def create_from_omniauth    
     auth_hash = request.env["omniauth.auth"]
     authentication = Authentication.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"]) ||  Authentication.create_with_omniauth(auth_hash)
 
@@ -8,7 +8,8 @@ class SessionsController < Clearance::SessionsController
     if authentication.user
       user = authentication.user
       authentication.update_token(auth_hash)
-      @next = root_url
+      @next = listings_path
+      # @next = root_url
       #@notice = "Signed in!"
       # else: user logs in with OAuth for the first time
     else  
@@ -23,11 +24,6 @@ class SessionsController < Clearance::SessionsController
 
     sign_in(user)
     redirect_to @next #, :notice => @notice
-  end
-
-  def birthdate_to_session
-    session["birthdate"] = params[:user][:birthdate]
-    redirect_to "/auth/google_oauth2"
-  end
+  end  
   
 end

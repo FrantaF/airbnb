@@ -23,4 +23,6 @@ class User < ApplicationRecord
    return x.token unless x.nil?
  end
 
+ 
+
 end
