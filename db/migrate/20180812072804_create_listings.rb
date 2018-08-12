@@ -1,7 +1,4 @@
 class CreateListings < ActiveRecord::Migration[5.1]
- def change
-  create_table :listings do |t|
-
    def change
       create_table :listings do |t|
        t.string :description
@@ -23,8 +20,8 @@ class CreateListings < ActiveRecord::Migration[5.1]
        t.references :user, foreign_key: true
        t.references :amenity, foreign_key: true
     end
+
+
  end
- 
 end
-end
-end
+

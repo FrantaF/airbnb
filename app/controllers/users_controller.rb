@@ -14,7 +14,7 @@ class UsersController < Clearance::UsersController
 
    def edit
       #SET USR PASSWORD AND BIRTHDATE HERE
-      current_user.update(:birthdate => ...., :encrypted_password => ....)
+      # current_user.update(:birthdate => ...., :encrypted_password => ....)
    end
 
    private
