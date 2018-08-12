@@ -12,12 +12,9 @@ class UsersController < Clearance::UsersController
       end
    end
 
-   def login
-   end
-
    def edit
-      #handle update of user info here i.e. set birthdate and pswd after google authentication
-
+      #SET USR PASSWORD AND BIRTHDATE HERE
+      current_user.update(:birthdate => ...., :encrypted_password => ....)
    end
 
    private

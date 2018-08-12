@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  root 'sessions#sign_in'
+  root 'sessions#login'
   
-  get "/auth/:provider/callback" => "sessions#create_from_omniauth"  
-  get "/login" => "users#login"
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"    
   get "/listings" => "listings#index"
   get "/users_edit" => "users#edit"
   get "/search_listings" => "listings#search"

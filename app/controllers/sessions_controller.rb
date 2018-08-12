@@ -10,9 +10,8 @@ class SessionsController < Clearance::SessionsController
       authentication.update_token(auth_hash)
       @next = listings_path
       # @next = root_url
-      #@notice = "Signed in!"
-      # else: user logs in with OAuth for the first time
-    else  
+      #@notice = "Signed in!"      
+    else        
       user = User.create_with_auth_and_hash(authentication, auth_hash)
       # you are expected to have a path that leads to a page for editing user details
 
@@ -25,5 +24,13 @@ class SessionsController < Clearance::SessionsController
     sign_in(user)
     redirect_to @next #, :notice => @notice
   end  
-  
+
+  def login
+    if signed_in?
+      redirect_to listings_path
+    end
+  end
+
+
+
 end

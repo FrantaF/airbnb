@@ -1,12 +1,12 @@
 class ListingsController < ApplicationController
- 
- def index   
- end
+   before_action :require_login 
+   def index   
+   end
 
- def show
- end
- 
- def search
- end
+   def show
+   end
+   
+   def search
+   end
 
 end
