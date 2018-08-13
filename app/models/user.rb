@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   include Clearance::User
 
+  #access privilages 
   enum role: {member:0, host:1, admin:2}
 
   has_many :authentications, dependent: :destroy
@@ -13,8 +14,10 @@ class User < ApplicationRecord
     last_name: auth_hash["info"]["last_name"],
     email:auth_hash["info"]["email"],
     birthdate: Date.new,
-    password: SecureRandom.hex(10)
+    password: SecureRandom.hex(10),
+    role: 0    
     )   
+
    user.authentications << authentication
    return user
  end

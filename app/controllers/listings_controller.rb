@@ -13,11 +13,15 @@ class ListingsController < ApplicationController
    def create
    end
 
-   def create_new_listing   
-      # byebug   
+   def create_new_listing         
       listing = Listing.new(listing_params)
+      listing.user_id = current_user.id
       if listing.save
-         render "root_url"
+         # set user status to host. Add condition to application.erb to display extra link on navbar 
+         #for user_host. Create a view page your_listings/:id. Display all listings with 
+         #user id retrieved from params. Redicrect to this page. Make the page of those without
+         #host status unaccessable    
+         render "SOME PAGE"
       end
    end
 
