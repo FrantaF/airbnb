@@ -10,6 +10,12 @@ class ListingsController < ApplicationController
       render "show_search_results"
    end
 
+   def create
+   end
+
+   def create_new_listing
+   end
+   
    def search_results      
       #INFO LOST WHEN REDIRECT      
       @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")      

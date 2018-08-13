@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get "/listings_search" => "listing#search"
   post "/listings_search" => "listings#search_results" 
 
+  post "/become_host" => "listings#create"
+  get "/listings_create" => "listings#create"
+  post "listings_create" => "listings#create_new_listing"
+
   # post "/sign_out" => "sessions#destroy"
   
   resources :users, only: [:create, :edit] do
