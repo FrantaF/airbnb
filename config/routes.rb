@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/listings_create" => "listings#create"
   post "listings_create" => "listings#create_new_listing"
 
-  # post "/sign_out" => "sessions#destroy"
+  delete "/log_out" => "sessions#destroy", as: :custom_sign_out
   
   resources :users, only: [:create, :edit] do
     resource :password,

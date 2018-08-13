@@ -6,21 +6,59 @@
 
           <h2>Create a new listing</h2>           
 
-        </div>
-        
+        </div>                
+
         <%= form_for :user, url: listings_create_path, id: "listings", class: "listings" do |form| %>
 
         <div class="form-group">
-          <label>Which Country?</label>
-          <input type="text" class="form-control" id="inputLocation" placeholder="Specify country" name="user[country]">
+          <label>Brief description of your offer</label>
+          <input type="text" class="form-control" id="inputLocation" placeholder="Brief Description" name="user[description]">
         </div>
 
         <div class="form-group">
-          <label>Which City?</label>
-          <input type="text" class="form-control" id="inputLocation" placeholder="Specify city" name="user[city]">
+          <label>Provide address of your property starting with: Country</label>
+          <input type="text" class="form-control" id="inputLocation" placeholder="Country" name="user[country]">
         </div>      
 
-        <button type="submit" class="btn btn-primary">Search</button>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" class="form-control" id="inputLocation" placeholder="City" name="user[city]">
+        </div>      
+
+        <div class="form-group">
+          <label>Street</label>
+          <input type="text" class="form-control" id="inputLocation" placeholder="Street" name="user[street]">
+        </div>      
+
+        <div class="form-group">
+          <label>Price eper night</label>
+          <input type="text" class="form-control" id="inputLocation" placeholder="$$$" name="user[price_per_night]">
+        </div>      
+
+        <div class="form-group">
+          <label for="property-scope">Scope of your property available to guests:</label>
+          <select class="form-control" id="property-scope" name="user[property_scope]">
+            <option>Entire place</option>
+            <option>Private room</option>
+            <option>Shared room</option>            
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="property-type">Type of your property:</label>          
+          <select class="form-control" id="property-type" name="user[property_type]">
+            <option>Appartment</option>
+            <option>House</option>
+            <option>Unique Space</option>            
+            <option>Bed and Breakfast</option>            
+            <option>Hotel Room</option>            
+          </select>
+        </div>
+
+        <!-- Add amenities -->
+        <!-- .... -->
+
+        <button type="submit" class="btn btn-primary">Create listing</button>
 
         <%end%>  
       </div>
