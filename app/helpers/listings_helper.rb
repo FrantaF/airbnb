@@ -16,4 +16,18 @@ module ListingsHelper
       return styled_listings
    end
 
+   def generate_tags
+      options = ["smoker", "non-smoker", "pets", "late coder", "nice person"]
+      buttons = []
+      counter = 0
+      
+      options.each do |option|
+         button = "<div class='radio'><label><input type='radio' name='user[option#{counter}]'> #{option} </label></div>"
+         buttons.push(button)
+         counter += 1
+      end
+      return buttons
+
+   end
+
 end

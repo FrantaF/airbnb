@@ -58,6 +58,15 @@
         <!-- Add amenities -->
         <!-- .... -->
 
+        <!-- Add tags -->
+        <label>Tags</label>  
+        <div class="form-group" style="display: block;">       
+          <% @tags = generate_tags %>
+          <% @tags.each do |tag| %>
+          <%= raw tag %>
+          <% end %>
+        </div>
+
         <button type="submit" class="btn btn-primary">Create listing</button>
 
         <%end%>  
