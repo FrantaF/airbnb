@@ -1,7 +1,8 @@
-require 'byebug'
-
 class User < ApplicationRecord
   include Clearance::User
+
+  enum role: {member:0, host:1, admin:2}
+
   has_many :authentications, dependent: :destroy
   has_many :listings, dependent: :destroy
 
