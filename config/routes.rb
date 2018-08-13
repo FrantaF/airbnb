@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   get "/user_listings" => "listings#user_listings"
   post "/user_listings" => "listings#user_listings"
 
-  get "/listing" => "listings#listing"
+
+  get "/listing/:id" => "listings#show"
+
+  post "/user_profile/" => "users#profile"
+  get "/user_profile/:id" => "users#profile"
 
   delete "/log_out" => "sessions#destroy", as: :custom_sign_out
   

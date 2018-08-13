@@ -3,7 +3,7 @@ include ListingsHelper
 class ListingsController < ApplicationController
    before_action :require_login 
    
-   def search_box   
+   def search_box         
    end
 
    def search
@@ -33,7 +33,11 @@ class ListingsController < ApplicationController
    end
 
    def listing
+      Listing.find(params[:id])
+   end
 
+   def show
+      render "listing"
    end
 
    def search_results                 
