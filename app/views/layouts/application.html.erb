@@ -30,9 +30,16 @@
     <ul class="navbar-nav ml-auto">
       <% if signed_in? %>
       
+      <% if current_user.role == "member" %>
       <li class="nav-item mr-3">
         <%= button_to 'Become Host', become_host_path, method: :post, :class => 'btn btn-default' %>
       </li>
+
+      <% elsif current_user.role == "host" %>
+      <li class="nav-item mr-3">
+        <%= button_to 'Your Listings', user_listings_path, method: :post, :class => 'btn btn-default' %>
+      </li>
+      <% end %>
 
       <li class="nav-item">
        <%= button_to 'Sign out', custom_sign_out_path, method: :delete, :class => 'btn btn-default'%>    

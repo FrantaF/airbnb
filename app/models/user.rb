@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :authentications, dependent: :destroy
   has_many :listings, dependent: :destroy
+  mount_uploader :avatar, AvatarUploader
 
   def self.create_with_auth_and_hash(authentication, auth_hash)
 
@@ -15,7 +16,8 @@ class User < ApplicationRecord
     email:auth_hash["info"]["email"],
     birthdate: Date.new,
     password: SecureRandom.hex(10),
-    role: 0    
+    role: 0,    
+    avatar: "something"
     )   
 
    user.authentications << authentication
