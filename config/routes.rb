@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   delete "/log_out" => "sessions#destroy", as: :custom_sign_out
   
-  resources :users, only: [:create, :edit] do
+  resources :users, only: [:create, :edit, :update] do
     resource :password,
     controller: "clearance/passwords",
     only: [:create, :edit, :update]

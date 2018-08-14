@@ -1,1 +1,6 @@
-<h1>Your profile page ...</h1>
+<%= form_for current_user, url: "/users/#{current_user.id}", method: "patch" do |f| %>
+<div class="form-group">
+   <%= f.file_field :avatar %> 
+</div>
+<%= f.submit "edit" %>
+<% end %>

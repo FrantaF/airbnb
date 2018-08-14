@@ -17,7 +17,7 @@ class User < ApplicationRecord
     birthdate: Date.new,
     password: SecureRandom.hex(10),
     role: 0,    
-    avatar: "something"
+    remote_avatar_url: auth_hash["info"]["image"]
     )   
 
    user.authentications << authentication

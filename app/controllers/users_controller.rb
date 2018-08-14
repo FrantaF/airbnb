@@ -1,6 +1,7 @@
 class UsersController < Clearance::UsersController
 
    def create      
+
       @user= User.new(user_params)
       if @user.save
          redirect_to sign_in_path
@@ -23,6 +24,10 @@ class UsersController < Clearance::UsersController
       current_user.update(:birthdate => params[:user][:birthdate])
       
 
+   end
+
+   def update
+      byebug
    end
 
    def profile      
