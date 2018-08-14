@@ -20,6 +20,13 @@
         <input type="text" class="form-control" id="inputLocation" placeholder="Specify city" name="user[city]">
       </div>      
 
+      <div class="form-group" style="display: block;">       
+        <% @tags = generate_tags %>
+        <% @tags.each do |tag| %>
+        <%= raw tag %>
+        <% end %>
+      </div>
+
       <button type="submit" class="btn btn-primary">Search</button>
 
       <%end%>  

@@ -26,7 +26,7 @@ class UsersController < Clearance::UsersController
    end
 
    def profile      
-      # User.find(params[:id])
+      User.find(params[:id])
    end
 
    private

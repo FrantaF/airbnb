@@ -4,67 +4,99 @@
       <div class="main-div">
         <div class="panel">
 
-          <h2>Create a new listing</h2>           
+          <h2 style="color: #ff6969; font-size: 25px;"><strong>Tell your future customers about your property</strong></h2>          
 
         </div>                
 
         <%= form_for :user, url: listings_create_path, id: "listings", class: "listings" do |form| %>
 
-        <div class="form-group">
-          <label>Brief description of your offer</label>
-          <input type="text" class="form-control" id="inputLocation" placeholder="Brief Description" name="user[description]">
+        <div class="row" style="margin-top: 2%;">
+
+          <div class="col-sm-12 form-group">
+            <label>Describe briefly your property</label>
+            <input style="text-align: center;" type="text" class="form-control" id="inputLocation" placeholder="Brief Description" name="user[description]">
+          </div>
+
         </div>
 
-        <div class="form-group">
-          <label>Provide address of your property starting with: Country</label>
-          <input type="text" class="form-control" id="inputLocation" placeholder="Country" name="user[country]">
-        </div>      
+        <div class="row" style="margin-top: 2%;">
 
-        <div class="form-group">
-          <label>City</label>
-          <input type="text" class="form-control" id="inputLocation" placeholder="City" name="user[city]">
-        </div>      
+          <div class="col-sm-12">
+            <label>Address</label>
+          </div>
 
-        <div class="form-group">
-          <label>Street</label>
-          <input type="text" class="form-control" id="inputLocation" placeholder="Street" name="user[street]">
-        </div>      
+          <div class="col-md-4 form-group">            
+            <input style="text-align: center;" type="text" class="form-control" id="inputLocation" placeholder="Street" name="user[street]">
+          </div>   
 
-        <div class="form-group">
-          <label>Price eper night</label>
-          <input type="text" class="form-control" id="inputLocation" placeholder="$$$" name="user[price_per_night]">
-        </div>      
+          <div class="col-md-4 form-group">            
+            <input style="text-align: center;" type="text" class="form-control" id="inputLocation" placeholder="City" name="user[city]">
+          </div>      
 
-        <div class="form-group">
-          <label for="property-scope">Scope of your property available to guests:</label>
-          <select class="form-control" id="property-scope" name="user[property_scope]">
-            <option>Entire place</option>
-            <option>Private room</option>
-            <option>Shared room</option>            
-          </select>
+          <div class="col-md-4 form-group">            
+            <input style="text-align: center;" type="text" class="form-control" id="inputLocation" placeholder="Country" name="user[country]">
+          </div>   
+        </div>   
+
+        <div class="row" style="margin-top: 2%;">
+
+          <div class="col-md-4 form-group">
+            <label for="property-type">Property type</label>          
+            <select class="form-control" id="property-type" name="user[property_type]">
+              <option>Appartment</option>
+              <option>House</option>
+              <option>Unique Space</option>            
+              <option>Bed and Breakfast</option>            
+              <option>Hotel Room</option>            
+            </select>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label for="property-scope">Available to guests</label>
+            <select class="form-control" id="property-scope" name="user[property_scope]">
+              <option>Entire place</option>
+              <option>Private room</option>
+              <option>Shared room</option>            
+            </select>
+          </div>
+
+          <div class="col-md-4 form-group">
+            <label>Price per night</label>
+            <input type="text" class="form-control" id="inputLocation" placeholder="$$$" name="user[price_per_night]">
+          </div>   
+
         </div>
 
-        <div class="form-group">
-          <label for="property-type">Type of your property:</label>          
-          <select class="form-control" id="property-type" name="user[property_type]">
-            <option>Appartment</option>
-            <option>House</option>
-            <option>Unique Space</option>            
-            <option>Bed and Breakfast</option>            
-            <option>Hotel Room</option>            
-          </select>
+        <!-- Tags -->
+        <div class="form-group" style="display: inline-block;">       
+          <div class="row justify-content-center" style="margin-top: 2%;">
+
+            <div class="col-sm-12">
+              <label>What charactarizes you and your property</label>
+            </div>
+            
+            <% @tags = generate_tags %>
+            <% @tags.each do |tag| %>
+            <%= raw tag %>
+            <% end %>
+
+          </div>
         </div>
 
-        <!-- Add amenities -->
-        <!-- .... -->
+        <!-- Amenities -->
+        <div class="form-group" style="display: inline-block;">       
+          <div class="row justify-content-center" style="margin-top: 2%;">
 
-        <!-- Add tags -->
-        <label>Tags</label>  
-        <div class="form-group" style="display: block;">       
-          <% @tags = generate_tags %>
-          <% @tags.each do |tag| %>
-          <%= raw tag %>
-          <% end %>
+            <div class="col-sm-12">
+              <label>What amenities are available to guests</label>
+            </div>
+            
+            <% @tags = generate_amenities %>
+            <% @tags.each do |tag| %>
+            <%= raw tag %>
+            <% end %>
+
+          </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Create listing</button>

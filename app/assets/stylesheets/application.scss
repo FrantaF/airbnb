@@ -14,48 +14,48 @@
 @import "font-awesome";
 
 .navbar-img{
-   width:80px;
+ width:80px;
 }
 
 .login-form{
-   padding-top: 5%;
+ padding-top: 5%;
 }
 
 .register{
-   display: none;
+ display: none;
 }
 
 .email-signup{
-   margin-top: 10%;
+ margin-top: 10%;
 }
 
 .background-picture{ 
-   background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
-   background-repeat:no-repeat; 
-   background-position:center; 
-   background-size: 100% 100%;
+ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
+ background-repeat:no-repeat; 
+ background-position:center; 
+ background-size: 100% 100%;
    // padding:10px;
    width: 100vw;
    height: 100vh;
    position: relative;
    display: block;
-}
+ }
 
-.form-heading { 
+ .form-heading { 
    color:#fff; font-size:23px;
-}
-.panel h2{ 
+ }
+ .panel h2{ 
    color:#444444; 
    font-size:18px; 
    margin:0 0 8px 0;
-}
-.panel p { 
+ }
+ .panel p { 
    color:#777777; 
    font-size:14px;
    margin-bottom:30px;
    line-height:24px;
-}
-.login-form .form-control {
+ }
+ .login-form .form-control {
   background: #f7f7f7 none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
   border-radius: 4px;
@@ -69,7 +69,8 @@
   // margin: 10px auto 30px;
   margin: auto;
   min-width: 200px!important;
-  max-width: 38%; 
+  max-width: 70%; 
+  // max-width: 38%; 
   padding: 50px 70px 50px 71px;  
 }
 

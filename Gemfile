@@ -40,6 +40,7 @@ gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
 gem "mini_magick"
+gem 'kaminari'
 
 
 # Use Redis adapter to run Action Cable in production

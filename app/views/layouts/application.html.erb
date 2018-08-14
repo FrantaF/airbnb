@@ -6,6 +6,7 @@
 
   <%= favicon_link_tag 'logo.png' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'listings', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
@@ -46,7 +47,7 @@
       <% end %>
 
       <li class="nav-item mr-3">
-        <%= button_to 'Profile', user_profile_path, method: :post, :class => 'btn btn-default'%>           
+        <%= button_to 'Profile', user_profile_path(current_user.id), method: :post, :class => 'btn btn-default'%>           
       </li>    
 
       <li class="nav-item">

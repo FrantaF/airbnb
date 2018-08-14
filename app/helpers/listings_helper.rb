@@ -1,5 +1,6 @@
 module ListingsHelper
 
+
    def style_listings(listings)
       styled_listings = []
       listings.each do |listing| 
@@ -17,16 +18,41 @@ module ListingsHelper
    end
 
    def generate_tags
-      options = ["smoker", "non-smoker", "pets", "late coder", "nice person"]
+      options = ["smoker", "non-smoker", "has pets", "late coder", "nice person"]
       buttons = []
       counter = 0
       
       options.each do |option|
-         button = "<div class='radio'><label><input type='radio' name='user[option#{counter}]'> #{option} </label></div>"
+         button = "<div class='form-group' style='margin-right: 2%'>
+         <label> #{option} </label>
+         <div class='radio'>
+         <input type='radio' name='user[option#{counter}]'>
+         </div>
+         </div>"
          buttons.push(button)
          counter += 1
       end
       return buttons
+   end
+
+   def generate_amenities
+      options = ["TV", "Hairdryer", "Towels", "Dishwasher", "Microwave"]
+      buttons = []
+      counter = 0
+      
+      options.each do |option|
+         button = "<div class='form-group' style='margin-right: 2%'>
+         <label> #{option} </label>
+         <div class='radio'>
+         <input type='radio' name='user[option#{counter}]'>
+         </div>
+         </div>"
+         buttons.push(button)
+         counter += 1
+      end
+      return buttons
+
+
 
    end
 

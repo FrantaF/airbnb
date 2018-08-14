@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/listings_search" => "listings#search_results" 
 
   post "/become_host" => "listings#create"
+  get "/become_host" => "listings#create"
   get "/listings_create" => "listings#create"
   post "listings_create" => "listings#create_new_listing"
 
@@ -20,8 +21,10 @@ Rails.application.routes.draw do
 
   get "/listing/:id" => "listings#show"
 
-  post "/user_profile/" => "users#profile"
-  get "/user_profile/:id" => "users#profile"
+  scope as: "user_profile" do
+    post "/user_profile/:id" => "users#profile"
+    get "/user_profile/:id" => "users#profile"
+  end
 
   delete "/log_out" => "sessions#destroy", as: :custom_sign_out
   
