@@ -1,10 +1,11 @@
+
 <div class="login-form">
   <div class="container">   
     <div class="login-form">
       <div class="main-div">
         <div class="panel">
 
-          <h2 style="color: #ff6969; font-size: 25px;"><strong>Tell your future customers about your property</strong></h2>          
+          <h2 style="color: #ff6969; font-size: 25px;"><strong>About your property</strong></h2>          
 
         </div>                
 
@@ -74,7 +75,7 @@
             <div class="col-sm-12">
               <label>What charactarizes you and your property</label>
             </div>
-            
+
             <% @tags = generate_tags %>
             <% @tags.each do |tag| %>
             <%= raw tag %>
@@ -90,7 +91,7 @@
             <div class="col-sm-12">
               <label>What amenities are available to guests</label>
             </div>
-            
+
             <% @tags = generate_amenities %>
             <% @tags.each do |tag| %>
             <%= raw tag %>
@@ -111,7 +112,6 @@
     </div>
   </div>
 </div>
-
 
 
 

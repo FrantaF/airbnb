@@ -17,6 +17,10 @@ body{
   width: 100%;
 }
 
+.navbar{
+
+}
+
 .navbar-img{
  width:80px;
 }
@@ -164,16 +168,18 @@ html {
   font-size: 14px;
   height: 50px;
   line-height: 50px;
+  padding-top: 0px;
 }
 .main-div {
   background: #ffffff none repeat scroll 0 0;
-  border-radius: 2px;
-  // margin: 10px auto 30px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: thin;  
   margin: auto;
-  min-width: 200px!important;
-  max-width: 70%; 
-  // max-width: 38%; 
-  padding: 50px 70px 50px 71px;  
+  min-width: 320px!important;
+  max-width: 70%;   
+  margin-top: 0px;
+  padding: 20px 70px 20px 71px;  
 }
 
 .login-form .form-group {
@@ -218,9 +224,19 @@ html {
 // Then create_listing form
 .login-booking .main-div {
   background: #ffffff none repeat scroll 0 0;
-  border-radius: 2px;  
+  border-radius: 20px;  
+  border-style: solid;
+  border-width: thin;
   margin: auto;
-  min-width: 200px!important;  
+  min-width: 320px!important;  
   max-width: 45%; 
   padding: 50px 70px 50px 71px;  
+}
+
+.login-form{
+  padding-top: 1%;
+}
+
+.login-booking{
+  padding-top: 6%!important;
 }
