@@ -36,6 +36,27 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label>Check In</label>
+          <input type="date" class="form-control" id="inputCheckin" name="user[check_in]">
+        </div>
+
+        <div class="form-group">
+          <label>Check Out</label>
+          <input type="date" class="form-control" id="inputCheckout" name="user[check_out]">
+        </div>
+        
+        <div class="form-group">
+          <label for="selectGuests">Guests</label>
+          <select class="form-control" id="selelctGuests" name="user[guests]">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>          
+        </div>
+
         <button type="submit" class="btn btn-primary">Search</button>
 
         <%end%>  

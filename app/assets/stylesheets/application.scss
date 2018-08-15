@@ -13,6 +13,10 @@
 @import "bootstrap";
 @import "font-awesome";
 
+body{
+  width: 100%;
+}
+
 .navbar-img{
  width:80px;
 }
@@ -29,33 +33,41 @@
  margin-top: 10%;
 }
 
+.profile-img-row{
+  padding-top: 3%;
+}
+
+.profile-row-item{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+}
+
 .background-picture{ 
  background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg");
  background-repeat:no-repeat; 
  background-position:center; 
- background-size: 100% 100%;
-   // padding:10px;
-   width: 100vw;
-   height: 100vh;
-   position: relative;
-   display: block;
- }
+ background-size: 100% 100%;   
+ height: 100vh;
+ 
+ 
+}
 
- .form-heading { 
-   color:#fff; font-size:23px;
- }
- .panel h2{ 
-   color:#444444; 
-   font-size:18px; 
-   margin:0 0 8px 0;
- }
- .panel p { 
-   color:#777777; 
-   font-size:14px;
-   margin-bottom:30px;
-   line-height:24px;
- }
- .login-form .form-control {
+.form-heading { 
+ color:#fff; font-size:23px;
+}
+.panel h2{ 
+ color:#444444; 
+ font-size:18px; 
+ margin:0 0 8px 0;
+}
+.panel p { 
+ color:#777777; 
+ font-size:14px;
+ margin-bottom:30px;
+ line-height:24px;
+}
+.login-form .form-control {
   background: #f7f7f7 none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
   border-radius: 4px;

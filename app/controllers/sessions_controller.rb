@@ -8,22 +8,15 @@
     if authentication.user
       user = authentication.user
       authentication.update_token(auth_hash)
-      @next = listings_search_box_path
-      # @next = root_url
-      #@notice = "Signed in!"      
+      
+      sign_in(user)
+      redirect_to listings_search_box_path 
     else        
       user = User.create_with_auth_and_hash(authentication, auth_hash)
-      # you are expected to have a path that leads to a page for editing user details
-
-      # REDIRECT TO A PAGE WHERE USER AUTHENTICATION WILL BE REQUEIRED.
-      # HERE ASK THE USER TO PROVIDE FURTHER INFORMATION SUCH AS BIRTHDATE, PROFILE PIC ETC. 
-      # @next = edit_user_path(user)
-      @next = users_edit_path(user)
-      @notice = "User created. Please confirm or edit details"
+      sign_in(user)            
+      redirect_to users_profile_path(user.id)
     end
 
-    sign_in(user)
-    redirect_to @next #, :notice => @notice
   end  
 
   def login

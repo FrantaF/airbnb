@@ -17,17 +17,13 @@ class UsersController < Clearance::UsersController
       # render "profile"
    end
 
-   def edit
-      #SET USR PASSWORD AND BIRTHDATE HERE
-      #current_user.update(:birthdate => ...., :encrypted_password => ....)
-      
-      current_user.update(:birthdate => params[:user][:birthdate])
-      
-
+   def edit      
+      # current_user.update(:birthdate => params[:user][:birthdate], :password params[:user][:password])
    end
 
    def update
-      byebug
+      current_user.update(:avatar => params[:user][:avatar])
+      redirect_to user_profile_path(current_user.id)
    end
 
    def profile      

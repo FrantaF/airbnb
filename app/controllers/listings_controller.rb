@@ -16,18 +16,18 @@ class ListingsController < ApplicationController
    def create_new_listing         
       listing = Listing.new(listing_params)
       listing.user_id = current_user.id
-      if listing.save
+      if listing.save 
          #Create a view page your_listings/:id. 
          #Display all listings with user id retrieved from params. Redicrect to this page. 
          #Make the page of those without host status unaccessable    
          current_user.update(:role => 1)
-         render "user_listings"
+         redirect_to user_listings_path
       end
    end
 
    def user_listings
-      @listings = Listing.where("user_id = ?", "#{current_user.id}")
-      @listings = style_listings(@listings)
+      listing = Listing.where("user_id = ?", "#{current_user.id}")
+      @listings = style_listings(listing)
       render "user_listings"
       # use style_listings() to render all listings of the particular user 
    end
@@ -50,7 +50,7 @@ class ListingsController < ApplicationController
    private
 
    def listing_params      
-      params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_scope, :property_scope)
+      params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_scope, :property_scope, :image)
    end   
 
 end

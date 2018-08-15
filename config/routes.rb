@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get "/user_listings" => "listings#user_listings"
   post "/user_listings" => "listings#user_listings"
 
-
   get "/listing/:id" => "listings#show"
 
   scope as: "user_profile" do

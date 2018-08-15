@@ -1,6 +1,19 @@
-<%= form_for current_user, url: "/users/#{current_user.id}", method: "patch" do |f| %>
-<div class="form-group">
-   <%= f.file_field :avatar %> 
+
+<div class="container">
+
+   <div class="col-sm-12 profile-img-row" >
+      <%=image_tag(User.find(params[:id]).avatar, :class => "profile-row-item")%>
+   </div>
+
+   <div class="col-sm-12 profile-img-row" >
+      <%= form_for current_user, url: "/users/#{current_user.id}", :class => "profile-row-item", method: "patch" do |f| %>
+      <div class="form-group profile-row-item">
+         <%= f.file_field :avatar %> 
+      </div>
+      <%= f.submit "edit" %>
+      <% end %>
+   </div>
+
+
+
 </div>
-<%= f.submit "edit" %>
-<% end %>
