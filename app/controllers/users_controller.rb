@@ -14,7 +14,6 @@ class UsersController < Clearance::UsersController
    end
 
    def show
-      # render "profile"
    end
 
    def edit      
@@ -27,7 +26,23 @@ class UsersController < Clearance::UsersController
    end
 
    def profile      
-      User.find(params[:id])
+      id = params[:id]
+      @user_name = User.find(id).first_name + " " + User.find(id).last_name
+      @description = current_user.description
+      if @description == nil
+         @description = "Brief description of the user ..."
+      end
+
+
+      if Listing.where("user_id = ?", "#{params[:id]}") != nil
+         @has_listings = true
+         listing = Listing.where("user_id = ?", "#{current_user.id}")
+         @listings = style_listings(listing)
+      else
+         @has_listings = false
+      end
+
+      @listings = style_listings(listing)
    end
 
    private

@@ -10,15 +10,15 @@ Rails.application.routes.draw do
   get "/listings_search" => "listing#search"
   post "/listings_search" => "listings#search_results" 
 
-  post "/become_host" => "listings#create"
-  get "/become_host" => "listings#create"
+  post "/host_property" => "listings#create"
+  get "/host_property" => "listings#create"
   get "/listings_create" => "listings#create"
-  post "listings_create" => "listings#create_new_listing"
-
-  get "/user_listings" => "listings#user_listings"
-  post "/user_listings" => "listings#user_listings"
+  post "listings_create" => "listings#create_new_listing"  
 
   get "/listing/:id" => "listings#show"
+
+  
+
 
   scope as: "user_profile" do
     post "/user_profile/:id" => "users#profile"

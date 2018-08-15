@@ -4,9 +4,10 @@ class ListingsController < ApplicationController
    before_action :require_login 
    
    def search_box         
+      @display_carousel = true
    end
 
-   def search
+   def search      
       render "show_search_results"
    end
 
@@ -23,14 +24,7 @@ class ListingsController < ApplicationController
          current_user.update(:role => 1)
          redirect_to user_listings_path
       end
-   end
-
-   def user_listings
-      listing = Listing.where("user_id = ?", "#{current_user.id}")
-      @listings = style_listings(listing)
-      render "user_listings"
-      # use style_listings() to render all listings of the particular user 
-   end
+   end   
 
    def listing
       Listing.find(params[:id])
@@ -42,6 +36,7 @@ class ListingsController < ApplicationController
 
    def search_results                 
       # You need to incorporate tags into the search here!!!!
+      # @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")      
       @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")      
       @listings = style_listings(@listings)
       render "show_search_results"

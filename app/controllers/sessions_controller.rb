@@ -19,7 +19,8 @@
 
   end  
 
-  def login
+  def login    
+    @display_carousel = true    
     if signed_in?
       redirect_to listings_search_box_path
     end

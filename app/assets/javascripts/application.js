@@ -18,21 +18,23 @@
 //= require_tree .
 
 function registration_form_display(){
-   let sender = document.getElementById("display-box-trigger");      
-   
-   let login = document.getElementById("loginBox");      
-   let registration = document.getElementById("registrationBox");      
+ let sender = document.getElementById("display-box-trigger");      
+ 
+ let login = document.getElementById("loginBox");      
+ let registration = document.getElementById("registrationBox");      
 
-   if (login.style.display === "none") {
-      login.style.display = "block";
-      sender.innerHTML = "Register"
-      registration.style.display = "none";
-   } else {
-    login.style.display = "none";
-    sender.innerHTML = "Login"
-    registration.style.display = "block";
- }
+ if (login.style.display === "none") {
+  login.style.display = "block";
+  sender.innerHTML = "Register"
+  registration.style.display = "none";
+} else {
+  login.style.display = "none";
+  sender.innerHTML = "Login"
+  registration.style.display = "block";
 }
+}
+
+$('.carousel').carousel();
 
 
 
