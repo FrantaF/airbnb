@@ -14,12 +14,12 @@ class CreateListings < ActiveRecord::Migration[5.1]
 
    t.string :property_scope
    t.string :property_type
-   t.integer :price_per_night
+   
 
    t.timestamps
    t.references :user, foreign_key: true
    t.references :amenity, foreign_key: true   
- end
+end
 
 
 end

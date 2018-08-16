@@ -16,15 +16,24 @@ Rails.application.routes.draw do
   get "/listings_create" => "listings#create"
   post "listings_create" => "listings#create_new_listing"  
 
-  get "/listing/:id" => "listings#show"
+  scope as: "listing" do
+    get "/listing/:id" => "listings#show"
+  end
 
   scope as: "user_profile" do
     post "/user_profile/:id" => "users#profile"
     get "/user_profile/:id" => "users#profile"
   end
 
+  scope as: "create_booking" do
+    post "/create_booking/:id" => "bookings#create"
+    get "/create_booking/:id" => "bookings#create"
+  end
+
+
+
   delete "/log_out" => "sessions#destroy", as: :custom_sign_out
-  
+
   resources :users, only: [:create, :edit, :update] do
     resource :password,
     controller: "clearance/passwords",
