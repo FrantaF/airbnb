@@ -14,7 +14,8 @@
     else        
       user = User.create_with_auth_and_hash(authentication, auth_hash)
       sign_in(user)            
-      redirect_to users_profile_path(user.id)
+      flash[:notice] = 'Please update your date of birth, password and upload a profile picture'
+      redirect_to user_profile_path(user.id)
     end
 
   end  

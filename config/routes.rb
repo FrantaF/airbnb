@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/users_edit" => "users#edit"
 
   get "/listings_search_box" => "listings#search_box"
+  post "/listings_search_box" => "listings#search_box"
   get "/listings_search" => "listing#search"
   post "/listings_search" => "listings#search_results" 
 
@@ -16,9 +17,6 @@ Rails.application.routes.draw do
   post "listings_create" => "listings#create_new_listing"  
 
   get "/listing/:id" => "listings#show"
-
-  
-
 
   scope as: "user_profile" do
     post "/user_profile/:id" => "users#profile"

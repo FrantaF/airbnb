@@ -25,6 +25,11 @@ body{
  width:80px;
 }
 
+.book-place-btn{
+  border-color: green;
+  color: green;
+}
+
 .login-form{
  padding-top: 5%;
 }
@@ -39,13 +44,14 @@ body{
 
 .profile-img-row{
   padding-top: 3%;
+
 }
 
-// .profile-row-item{
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;  
-// }
+.profile-row-item{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;  
+}
 
 html {
   position: relative;
@@ -234,7 +240,7 @@ html {
 }
 
 .login-form{
-  padding-top: 1%;
+  padding-top: 3%;
 }
 
 .login-booking{

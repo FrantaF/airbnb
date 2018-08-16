@@ -12,17 +12,15 @@ class ListingsController < ApplicationController
    end
 
    def create
+      @display_carousel = true
    end
 
    def create_new_listing         
       listing = Listing.new(listing_params)
       listing.user_id = current_user.id
-      if listing.save 
-         #Create a view page your_listings/:id. 
-         #Display all listings with user id retrieved from params. Redicrect to this page. 
-         #Make the page of those without host status unaccessable    
+      if listing.save          
          current_user.update(:role => 1)
-         redirect_to user_listings_path
+         redirect_to user_profile_path(current_user.id)
       end
    end   
 
@@ -35,9 +33,8 @@ class ListingsController < ApplicationController
    end
 
    def search_results                 
-      # You need to incorporate tags into the search here!!!!
-      # @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")      
-      @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")      
+      # You need to incorporate tags into the search here!!!!      
+      @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")                        
       @listings = style_listings(@listings)
       render "show_search_results"
    end

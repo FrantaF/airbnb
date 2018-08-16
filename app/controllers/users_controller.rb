@@ -32,17 +32,18 @@ class UsersController < Clearance::UsersController
       if @description == nil
          @description = "Brief description of the user ..."
       end
-
-
-      if Listing.where("user_id = ?", "#{params[:id]}") != nil
+      
+      
+      user_listings = Listing.where("user_id = ?", "#{params[:id]}")
+      if  !user_listings[0].nil?
          @has_listings = true
          listing = Listing.where("user_id = ?", "#{current_user.id}")
-         @listings = style_listings(listing)
+         @listings = listing
+         #@listings = style_listings(listing)
       else
          @has_listings = false
       end
-
-      @listings = style_listings(listing)
+      
    end
 
    private
