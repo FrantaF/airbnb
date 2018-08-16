@@ -1,7 +1,7 @@
 <div class="container listings-search-results">
    <div class="row" style="margin-top: 5%;">
       <% @listings.each do |listing| %>
-      <%= raw listing %>
+      <%= raw style_listings(listing) %>
       <% end %>
    </div>
 </div>

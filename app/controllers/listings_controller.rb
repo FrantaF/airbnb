@@ -34,8 +34,7 @@ class ListingsController < ApplicationController
 
    def search_results                 
       # You need to incorporate tags into the search here!!!!      
-      @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")                        
-      @listings = style_listings(@listings)
+      @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")                              
       render "show_search_results"
    end
 
