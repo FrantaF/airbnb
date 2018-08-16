@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180815083959) do
+ActiveRecord::Schema.define(version: 20180816045027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,10 @@ ActiveRecord::Schema.define(version: 20180815083959) do
     t.string "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.bigint "listings_id"
+    t.index ["listings_id"], name: "index_bookings_on_listings_id"
+    t.index ["users_id"], name: "index_bookings_on_users_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -43,8 +47,6 @@ ActiveRecord::Schema.define(version: 20180815083959) do
     t.string "country"
     t.string "city"
     t.string "street"
-    t.date "available_from"
-    t.date "available_to"
     t.integer "price_per_night"
     t.integer "number_of_guests"
     t.string "property_scope"
@@ -59,8 +61,6 @@ ActiveRecord::Schema.define(version: 20180815083959) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "email", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20180815083959) do
     t.string "encrypted_password", limit: 128, null: false
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "role"
     t.string "avatar"
     t.string "description"
@@ -76,6 +78,8 @@ ActiveRecord::Schema.define(version: 20180815083959) do
   end
 
   add_foreign_key "authentications", "users"
+  add_foreign_key "bookings", "listings", column: "listings_id"
+  add_foreign_key "bookings", "users", column: "users_id"
   add_foreign_key "listings", "amenities"
   add_foreign_key "listings", "users"
 end
