@@ -17,21 +17,22 @@ class Booking < ApplicationRecord
 
    end
 
-   def overlap?(x,y)         
+   def overlap?(x,y)        
+   # Add a condition that you cant book yesterday, end_date must be bigger than start 
 
-      x_start = Date.parse(x.start_date)
-      x_end = Date.parse(x.end_date)
-      y_start = Date.parse(y.start_date)
-      y_end = Date.parse(y.end_date)
+   x_start = Date.parse(x.start_date)
+   x_end = Date.parse(x.end_date)
+   y_start = Date.parse(y.start_date)
+   y_end = Date.parse(y.end_date)
 
-      (x_start - y_end) * (y_start - x_end) > 0
-   end
+   (x_start - y_end) * (y_start - x_end) > 0
+end
 
-   def check_max_guests
-      max_guests = listing.guest_number
-      return if num_guests < max_guests
-      errors.add(:max_guests, "The guest number exeeded ")
-   end
+def check_max_guests
+   max_guests = listing.guest_number
+   return if num_guests < max_guests
+   errors.add(:max_guests, "The guest number exeeded ")
+end
 
 
 end

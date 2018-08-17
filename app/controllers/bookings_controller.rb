@@ -1,13 +1,20 @@
+require 'date'
 class BookingsController < ApplicationController
    before_action :require_login 
 
    def create      
-      @listing_id = params[:id].to_i
+
       @booking = Booking.new(booking_params)
+      num_of_nights =  Date.parse(params[:booking][:end_date]) - Date.parse(params[:booking][:start_date])
+      price_per_night = Listing.find(params[:id]).price_per_night
+      booking_price = num_of_nights * price_per_night
+      @booking.total_price = booking_price
       
       if @booking.save
-         # redirect_to user_path(@booking.user_id)
          # PostmanWorker.perform_later(current_user.id, params[:listing_id], @booking.id)
+
+         #pass on the booking id for retrieval of payment info
+         session["booking_id"] = @booking.id
          redirect_to braintree_new_path(current_user.id)         
       else
          # @listing = Listing.find(@booking.listing_id)

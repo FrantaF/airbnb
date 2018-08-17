@@ -12,11 +12,14 @@ class BraintreeController < ApplicationController
   end
 
   def checkout
-    byebug
+    #retrieve booking id from session 
+    payable_amount = Booking.find(session["booking_id"]).total_price.to_i
+    session["booking_id"] = nil
+    
     nonce_from_the_client = params[:checkout_form][:payment_method_nonce]
 
     result = Braintree::Transaction.sale(
-   :amount => "10.00", #this is currently hardcoded
+   :amount => payable_amount, #this is currently hardcoded
    :payment_method_nonce => nonce_from_the_client,
    :options => {
     :submit_for_settlement => true
