@@ -7,8 +7,7 @@ class BookingsController < ApplicationController
       @booking = Booking.new(booking_params)
       num_of_nights =  Date.parse(params[:booking][:end_date]) - Date.parse(params[:booking][:start_date])
       price_per_night = Listing.find(params[:id]).price_per_night
-      booking_price = num_of_nights * price_per_night
-      @booking.total_price = booking_price
+      @booking.total_price = num_of_nights * price_per_night
       
       if @booking.save
          # PostmanWorker.perform_later(current_user.id, params[:listing_id], @booking.id)

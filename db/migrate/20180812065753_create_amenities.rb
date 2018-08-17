@@ -1,7 +1,7 @@
 class CreateAmenities < ActiveRecord::Migration[5.1]
   def change
     create_table :amenities do |t|
-      t.string :amenity
+      t.string :amenity, null: false
       t.timestamps
    end
 end

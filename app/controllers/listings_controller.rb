@@ -24,8 +24,7 @@ class ListingsController < ApplicationController
       end
    end   
 
-   def listing
-      Listing.find(params[:id])
+   def listing     
    end
 
    def show
@@ -33,8 +32,7 @@ class ListingsController < ApplicationController
       render "listing"
    end
 
-   def search_results                 
-      # You need to incorporate tags into the search here!!!!      
+   def search_results                             
       @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")                              
       render "show_search_results"
    end
@@ -42,7 +40,7 @@ class ListingsController < ApplicationController
    private
 
    def listing_params      
-      params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_scope, :property_scope, :image)
+      params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope)
    end   
 
 end

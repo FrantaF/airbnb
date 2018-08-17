@@ -1,10 +1,16 @@
 require 'date'
 class Booking < ApplicationRecord
+   #Db
    belongs_to :user, dependent: :destroy
    belongs_to :listing, dependent: :destroy   
+   enum payment: [:unpaid, :paid]
+
+   #Validators
    validate :check_overlapping_dates
    # validate :check_max_guests
-   enum payment: [:unpaid, :paid]
+   validates :start_date, presence: true
+   validates :end_date, presence: true
+   validates :total_price, presence: true
 
    def check_overlapping_dates  
       bookings = Booking.where(listing_id: self.listing_id)

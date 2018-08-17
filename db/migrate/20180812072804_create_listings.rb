@@ -13,8 +13,7 @@ class CreateListings < ActiveRecord::Migration[5.1]
    t.integer :number_of_guests
 
    t.string :property_scope
-   t.string :property_type
-   
+   t.string :property_type   
 
    t.timestamps
    t.references :user, foreign_key: true
