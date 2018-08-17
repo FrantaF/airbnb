@@ -37,7 +37,7 @@
     </div> -->
 
     <input type="hidden" value="<%=current_user.id%>" name="booking[user_id]">
-    <input type="hidden" value="<%=@listing_id%>" name="booking[listing_id]">      
+    <input type="hidden" value="<%= params[:id]%>" name="booking[listing_id]">      
     <button type="submit" class="btn btn-primary">Book</button>
 
     <%end%>  

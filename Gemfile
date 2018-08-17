@@ -41,7 +41,7 @@ gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
 gem "mini_magick"
 gem 'kaminari'
-
+gem 'braintree', '~> 2.90'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

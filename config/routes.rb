@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  root 'sessions#login'
+
+  scope as: "braintree_new" do
+    get '/braintree/new/:id' => 'braintree#new'
+  end
   
+  post '/braintree/checkout'
+
+
+  root 'sessions#login'
+
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"    
 
   get "/users_edit" => "users#show"
