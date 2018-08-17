@@ -1,7 +1,7 @@
 
 <div class="payment-frame">
 
-  <%= form_for :checkout_form, html: { id: "cardForm"} do |form| %>
+
 
   <%= form.label :card_number, "Credit Card Number", html: {class: "hosted-fields--label"} %>
   <div id="card-number" class="hosted-field"></div>
@@ -17,5 +17,4 @@
   <div class="button-container">
     <%= form.submit "Purchase", disabled: true, class: "btn btn-primary", id: "submit-payment-btn" %>
   </div>
-  <% end %>
 </div>

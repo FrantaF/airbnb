@@ -2,10 +2,13 @@ Rails.application.routes.draw do
 
   scope as: "braintree_new" do
     get '/braintree/new/:id' => 'braintree#new'
+    post '/braintree/new/:id' => 'braintree#new'
   end
   
-  post '/braintree/checkout'
-
+  scope as: "braintree_checkout" do
+    post '/braintree/checkout/:id' => "braintree#checkout"
+    get '/braintree/checkout/:id' => "braintree#checkout"
+  end
 
   root 'sessions#login'
 

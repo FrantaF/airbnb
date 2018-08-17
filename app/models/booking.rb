@@ -11,9 +11,7 @@ class Booking < ApplicationRecord
       bookings.each do |old_booking|         
          if overlap?(self, old_booking)
             errors.add(:overlapping_dates, "The booking dates conflict with existing bookings")            
-         end
-
-         
+         end        
       end
       #might want to return something here      
 
@@ -26,7 +24,6 @@ class Booking < ApplicationRecord
       y_start = Date.parse(y.start_date)
       y_end = Date.parse(y.end_date)
 
-      # byebug
       (x_start - y_end) * (y_start - x_end) > 0
    end
 

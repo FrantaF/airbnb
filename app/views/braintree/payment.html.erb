@@ -1,3 +1,8 @@
+
+<%= form_for :checkout_form, url: braintree_checkout_path, html: { id: "cardForm"} do |form| %>
+<%= render partial: '/braintree/payment', locals: {form: form} %>
+<%end%>
+
 <!-- Load the Client component. -->
 <script src="https://js.braintreegateway.com/web/3.6.3/js/client.min.js"></script>
 
@@ -75,7 +80,3 @@
       });
 
     </script>
-    <%= render partial: '/braintree/payment' %>
-
-    <%= form_for :checkout_form, url: braintree_checkout_path, html: { id: "cardForm"} do |form| %>
-    <%end%>
