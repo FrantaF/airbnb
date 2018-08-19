@@ -1,15 +1,15 @@
 module ListingsHelper
-# <%=image_tag(listing.image, :class => 'card-img-top')%>
-# https://images.pexels.com/photos/259600/pexels-photo-259600.jpeg?cs=srgb&dl=architecture-facade-house-259600.jpg&fm=jpg' alt='Card image cap
-# <img class='card-img-top' src='#{listing.image}'>
-def style_listings(listing)   
+
+   def style_listings(listing)   
 
    # NOTE: LISTING.IMAGE IS AN ARRAY!!! YOU ARE ONLY DISPLAYING THE FIRST PICTURE
    styled_listing = """
    <div class='row align-items-center justify-content-center' style='margin-top: 5%; margin-bottom: 5%;'>
    <div class='col-sm-12'>
    <div class='card'>      
-   <img class='card-img-top' src='#{listing.image}' />      
+   <img class='card-img-top' src='#{listing.image}' style='width: 100%;  display: block;
+   margin-left: auto;
+   margin-right: auto;' />      
    <div class='card-body'>
    <p class='card-text'>#{listing.description}</p>
    <a href='/listing/#{listing.id}'>link</a>
@@ -18,7 +18,6 @@ def style_listings(listing)
    </div>
    </div>
    <hr>
-
    """
 
    return styled_listing

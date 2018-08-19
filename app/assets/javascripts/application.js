@@ -10,14 +10,51 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+//= require rails-ujs
 //= require turbolinks
 //= require_tree .
 
-$('.carousel').carousel();
+// My custom carousel function
+// let counter = 2
+// let started = true
+// window.setInterval(function(){
+
+// // Reset counter
+// if (counter === 4){
+//   counter = 1
+//   started = false
+// }
+// // Add active class
+// if(counter !== 0){
+//   let nextItem = document.getElementById('carousel' + String(counter))    
+//   nextItem.classList.add("active")  
+// } else{
+//   let nextItem = document.getElementById('carousel1')
+//   nextItem.classList.add("active")  
+// }
+
+// // Remove active class
+// if (counter === 1 && started === false){
+//   let prevItem = document.getElementById('carousel3')
+//   prevItem.classList.remove("active") 
+// } else if (counter === 2){
+//   let prevItem = document.getElementById('carousel1')
+//   prevItem.classList.remove("active") 
+// } else if(counter === 3){
+//   let prevItem = document.getElementById('carousel2')
+//   prevItem.classList.remove("active") 
+// }
+
+// counter += 1
+
+// }, 7000);
+
+
 
 function registration_form_display(){
   let sender = document.getElementById("display-box-trigger");      
