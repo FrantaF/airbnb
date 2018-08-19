@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
 
   post '/update/user/description' => 'users#update_description'
-  
+
+  scope as: "listings_delete" do  
+    post "/listings/delete/:id" => "listings#delete"
+  end
 
   scope as: "braintree_new" do
     get '/braintree/new/:id' => 'braintree#new'

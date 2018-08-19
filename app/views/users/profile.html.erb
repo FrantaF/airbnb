@@ -65,7 +65,9 @@
     
     <%= style_listings(listing).html_safe %>
     
-    
+    <%= button_to 'Delete Listing', listings_delete_path(id: listing.id), method: :post, :class => 'btn btn-danger ' %>
+
+
     <!-- PARAMS ID IS WRONG!!! NOT ID FOR LISTING -->
     <%= form_for listing, url: "/listing/#{listing.id}", :class => "profile-row-item", method: "post" do |f| %>
 

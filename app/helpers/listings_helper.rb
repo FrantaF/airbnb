@@ -7,15 +7,33 @@ module ListingsHelper
    <div class='row align-items-center justify-content-center' style='margin-top: 5%; margin-bottom: 5%;'>
    <div class='col-sm-12'>
    <div class='card'>      
-   <img class='card-img-top' src='#{listing.image}' style='width: 100%;  display: block;
-   margin-left: auto;
-   margin-right: auto;' />      
+   <img class='card-img-top listing-pic-on-profile-pg' src='#{listing.image}' style='' />      
    <div class='card-body'>
-   <p class='card-text'>#{listing.description}</p>
-   <a href='/listing/#{listing.id}'>link</a>
+   <div class='col-md-6'>
+   <p class='card-text'>#{listing.description} <br/> <a href='/listing/#{listing.id}'>View property</a></p>
+   </div>
+   <div class='col-md-6'>"""
+   # STOP THE STRING HERE, RENDER RUBY CODE IN VIEW
+   # RENDER THE REST OF THE STRINGTHROUGH ANOTHER METHOD
+   #<%= render partial: 'listings/create_booking/' %>
+   """<div class='form-group' style='margin-top: 2%;'> <div class='row'>
+
+   <div class='col-md-6 form-group'>
+   <label>Check In</label>
+   <input type='date' class='form-control' id='inputCheckin' name='booking[start_date]'>
+   </div>
+
+   <div class='col-md-6 form-group'>
+   <label>Check Out</label>
+   <input type='date' class='form-control' id='inputCheckout' name='booking[end_date]'>
+   </div>
+
    </div>
    </div>
    </div>
+   </div>
+   </div>
+
    </div>
    <hr>
    """

@@ -7,9 +7,16 @@ class ListingsController < ApplicationController
       @display_carousel = true
    end
 
+   def delete
+      listing = Listing.find(params[:id])
+      listing.destroy
+      redirect_to user_profile_path(current_user.id)      
+   end
+
    def update      
       listing = Listing.find(params[:id])
       listing.update(image: params[:listing][:image])
+      redirect_to user_profile_path(current_user.id)
    end
 
    def search      
