@@ -7,6 +7,11 @@ class ListingsController < ApplicationController
       @display_carousel = true
    end
 
+   def update      
+      listing = Listing.find(params[:id])
+      listing.update(image: params[:listing][:image])
+   end
+
    def search      
       render "show_search_results"
    end
@@ -16,8 +21,12 @@ class ListingsController < ApplicationController
    end
 
    def create_new_listing         
+
       listing = Listing.new(listing_params)
-      listing.user_id = current_user.id
+      listing.user_id = current_user.id 
+      
+      # listing.amenities     
+
       if listing.save          
          current_user.update(:role => 1)
          redirect_to user_profile_path(current_user.id)
@@ -40,7 +49,7 @@ class ListingsController < ApplicationController
    private
 
    def listing_params      
-      params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope)
+      params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope, :number_of_guests, :image)
    end   
 
 end

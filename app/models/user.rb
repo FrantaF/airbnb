@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  include Clearance::User
+  include Clearance::User  
+
+
+  mount_uploader :avatar, AvatarUploader  
 
   #access privilages 
   enum role: {member:0, host:1, admin:2}
@@ -9,12 +12,10 @@ class User < ApplicationRecord
   has_many :listings, dependent: :destroy
   has_many :bookings, dependent: :destroy
   
-  #Validation
-  mount_uploader :avatar, AvatarUploader
+  #Validation  
   validates :first_name, presence: true
   validates :last_name, presence: true 
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  validates :email, presence: true, uniqueness: true  
   
   def self.create_with_auth_and_hash(authentication, auth_hash)
 
@@ -24,8 +25,8 @@ class User < ApplicationRecord
     email:auth_hash["info"]["email"],
     password: SecureRandom.hex(10),
     birthdate: nil,
-    remote_avatar_url: nil
-    role: 0,    
+    remote_avatar_url: auth_hash["info"]["image"],
+    role: 0,   
     )   
 
    user.authentications << authentication

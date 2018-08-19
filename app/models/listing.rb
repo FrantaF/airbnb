@@ -3,6 +3,7 @@ class Listing < ApplicationRecord
    belongs_to :user
    has_many :amenities   
    has_many :bookings, dependent: :destroy
+   accepts_nested_attributes_for :amenities
 
    #validators   
    mount_uploader :image, AvatarUploader

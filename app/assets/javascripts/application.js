@@ -17,26 +17,41 @@
 //= require turbolinks
 //= require_tree .
 
-function registration_form_display(){
- let sender = document.getElementById("display-box-trigger");      
- 
- let login = document.getElementById("loginBox");      
- let registration = document.getElementById("registrationBox");      
-
- if (login.style.display === "none") {
-  login.style.display = "block";
-  sender.innerHTML = "Register"
-  registration.style.display = "none";
-} else {
-  login.style.display = "none";
-  sender.innerHTML = "Login"
-  registration.style.display = "block";
-}
-}
-
 $('.carousel').carousel();
 
+function registration_form_display(){
+  let sender = document.getElementById("display-box-trigger");      
 
+  let login = document.getElementById("loginBox");      
+  let registration = document.getElementById("registrationBox");      
+
+  if (login.style.display === "none") {
+    login.style.display = "block";
+    sender.innerHTML = "Register"
+    registration.style.display = "none";
+  } else {
+    login.style.display = "none";
+    sender.innerHTML = "Login"
+    registration.style.display = "block";
+  }
+}
+
+function updateUserDescription(){
+ let sender = document.getElementById("update-user-description-btn"); 
+
+ let userDescriptionCurrent = document.getElementById("user-description-current");
+ let userDescriptionTextBox = document.getElementById("user-description-text-box");
+
+ if (sender.innerHTML === "Update Description") {
+  userDescriptionTextBox.style.display = "block";
+  sender.innerHTML = "Cancel"
+  userDescriptionCurrent.style.display = "none";
+} else {
+ userDescriptionTextBox.style.display = "none";
+ sender.innerHTML = "Update Description"
+ userDescriptionCurrent.style.display = "block";
+}
+}
 
 
 

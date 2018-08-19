@@ -3,17 +3,20 @@
 
  <div class="row">
   <div class="col-sm-12" >
-   <%=image_tag(User.find(params[:id]).avatar, :class => "profile-row-item")%>   
-
+   <%=image_tag(User.find(params[:id]).avatar, :class => "profile-row-item profile-pic")%>   
+   
+   <% if current_user.id == params[:id].to_i %>
    <%= form_for current_user, url: "/users/#{current_user.id}", :class => "profile-row-item", method: "patch" do |f| %>
 
-   <%= f.file_field :avatar %> 
+   <div class="profile-row-item">
+     <%= f.file_field :avatar  %> 
 
-   <%= f.submit "edit" %>
+     <%= f.submit "Edit Avatar" %>
+   </div>
+   <% end %>
    <% end %>
 
  </div>
-
 
  <div class="col-sm-6 offset-3" style="margin-top: 3%;">
   <div class="card">
@@ -21,10 +24,22 @@
      <%= @user_name %>
    </div>
    <div class="card-body">
-    <h5 class="card-title">About user</h5>
-    <p class="card-text"><%= @description %></p>         
-    <% if current_user.id == params[:id].to_i %>         
-    <a href="#" class="btn btn-primary">Update Description</a>
+    <h5 class="card-title">About <%= @user_first_name %></h5>
+    <p id="user-description-current" class="card-text"><%= @description %></p>         
+    
+    <% if current_user.id == params[:id].to_i %>             
+
+    <div id="user-description-text-box">
+
+      <%= form_for :update_usr_description, url: update_user_description_path, id: "usr-description-form", class: "" do |form| %>
+      
+      <input type="text" class="form-control" placeholder="Describe yourself" name="user[description]" style="text-align: center">  
+      
+      <button type="submit" class="btn btn-success" style="margin-top: 2%;">Save changes</button> 
+      <%end%>
+
+    </div>
+    <a style="margin-top: 5%;" href="#" id="update-user-description-btn" class="btn btn-primary" onclick="event.preventDefault();updateUserDescription()">Update Description</a>    
     <% end %>
   </div>
 </div>
@@ -50,7 +65,7 @@
     
     
     <!-- PARAMS ID IS WRONG!!! NOT ID FOR LISTING -->
-    <%= form_for listing, url: "/listing/#{listing.id}", :class => "profile-row-item", method: "patch" do |f| %>
+    <%= form_for listing, url: "/listing/#{listing.id}", :class => "profile-row-item", method: "post" do |f| %>
 
     <%= f.file_field :image %> 
 

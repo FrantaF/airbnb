@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  # scope as "amenities_create" do
+  #   post "/amenities/create/amenity" => "amenities#create"
+  # end
+
+
+  post '/update/user/description' => 'users#update_description'
+  
+
   scope as: "braintree_new" do
     get '/braintree/new/:id' => 'braintree#new'
     post '/braintree/new/:id' => 'braintree#new'
@@ -28,8 +36,10 @@ Rails.application.routes.draw do
   post "listings_create" => "listings#create_new_listing"  
 
   scope as: "listing" do
-    get "/listing/:id" => "listings#show"
+    get "/listing/:id" => "listings#show"    
   end
+
+  post "/listing/:id" => "listings#update"
 
   scope as: "user_profile" do
     post "/user_profile/:id" => "users#profile"
@@ -50,6 +60,8 @@ Rails.application.routes.draw do
     controller: "clearance/passwords",
     only: [:create, :edit, :update]
   end
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

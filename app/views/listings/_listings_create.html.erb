@@ -66,23 +66,35 @@
             <input type="text" class="form-control" id="inputLocation" placeholder="$$$" name="user[price_per_night]">
           </div>   
 
-        </div>        
+          <div class="col-md-4 form-group">
+            <label for="sel-guests">Max no. of guests</label>
+            <select class="form-control" id="sel-guests" name="user[number_of_guests]">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>  
 
-        <!-- Amenities -->
-        <div class="form-group" style="display: inline-block;">       
+          </div>        
+
+          <!-- Amenities -->
+       <!--  <div class="form-group" style="display: inline-block;">       
           <div class="row justify-content-center" style="margin-top: 2%;">
 
             <div class="col-sm-12">
               <label>What amenities are available to guests</label>
             </div>
 
-            <% @tags = generate_amenities %>
-            <% @tags.each do |tag| %>
-            <%= raw tag %>
-            <% end %>
+            <%# @tags = generate_amenities %>
+            <%# @tags.each do |tag| %>
+            <%#= raw tag %>
+            <%# end %>
 
           </div>
-        </div>        
+        </div>   -->      
 
         <button type="submit" class="btn btn-primary">Create listing</button>
 

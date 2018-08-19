@@ -3,10 +3,12 @@ class UsersController < Clearance::UsersController
    
    def create      
 
-      @user= User.new(user_params)
+      @user = User.new(user_params)
+      @user.role = 0
+      
       if @user.save
-         sign_in(user)            
-         redirect_to user_profile_path(user.id)
+         sign_in(@user)            
+         redirect_to user_profile_path(@user.id)
       else
          #specify there something to trigger JS 
          #which will then open the registration box rather than login box         
@@ -17,24 +19,32 @@ class UsersController < Clearance::UsersController
    def show
    end
 
+   def update_description
+      current_user.description = params[:user][:description]
+      current_user.save       
+      redirect_to user_profile_path(current_user.id)
+   end
+
    def edit      
       # current_user.update(:birthdate => params[:user][:birthdate], :password params[:user][:password])
    end
 
    def update
-      current_user.update(:avatar => params[:user][:avatar])
+      current_user.update(avatar: params[:user][:avatar])     
       redirect_to user_profile_path(current_user.id)
    end
 
-   def profile            
-
+   def profile      
       #Display user info
       @user_name = User.find(params[:id]).first_name + " " + User.find(params[:id]).last_name
+      @user_first_name = User.find(params[:id]).first_name
       @description = current_user.description
-      if @description == nil
+
+      if @description == nil or @description == ""
          @description = "Tell a story about yourself ..."
       end      
       
+
       #Display property hosted by the user
       user_listings = Listing.where("user_id = ?", "#{params[:id]}")
       if  !user_listings[0].nil?
@@ -49,7 +59,8 @@ class UsersController < Clearance::UsersController
 
    private
 
-   def user_params      
-      params.require(:user).permit(:email, :first_name, :last_name, :birthdate, :password)
-   end   
+   def user_params    
+     # user_params ||= params.require(:user).permit(:email, :first_name, :last_name, :birthdate, :password, :avatar, :role, :description)
+     params.require(:user).permit(:email, :first_name, :last_name, :birthdate, :password, :avatar, :role, :description)
+  end   
 end
