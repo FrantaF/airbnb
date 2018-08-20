@@ -40,8 +40,9 @@ gem 'faker', '~> 1.9', '>= 1.9.1'
 gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
 gem "mini_magick"
-gem 'kaminari'
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'braintree', '~> 2.90'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
    def create_new_listing         
 
       listing = Listing.new(listing_params)
-      listing.user_id = current_user.id 
+      listing.user_id = current_user.id       
       
       # listing.amenities     
 
@@ -48,16 +48,30 @@ class ListingsController < ApplicationController
       render "listing"
    end
 
-   def search_results                             
-      @listings = Listing.where("country LIKE ? AND city LIKE ?", "%#{params[:user][:country]}%","%#{params[:user][:city]}%")                              
-      render "show_search_results"
+   def search_results             
+
+   #search through city        
+   @listings = Listing.where("city LIKE ?", "%#{params[:user][:locaiton]}%")                              
+   
+   #if nothing is found, search through country
+   if @listings[0] == nil
+      @listings = Listing.where("country LIKE ?", "%#{params[:user][:locaiton]}%")                        
    end
 
-   private
+   #if nothing is sitll found, return the whole table  
+   if @listings[0] == nil
+      @listings = Listing.all
+   end      
 
-   def listing_params      
-      params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope, :number_of_guests, :image)
-   end   
+   @listings = @listings.paginate(page: params[:page], per_page: 9)
+   render "show_search_results"
+end
+
+private
+
+def listing_params      
+   params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope, :number_of_guests, :image)
+end   
 
 end
 
