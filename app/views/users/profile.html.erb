@@ -119,29 +119,83 @@
 </div>
 
 <% if current_user.id = params[:id] %>
-<div class="row col-sm-12">
+<div class="row col-sm-12" style="margin-top: 2%;">
 
   <div class="form-group col-sm-12 col-md-6">
     <%= button_to 'Delete Listing', listings_delete_path(id: listing.id), method: :post, :class => 'btn btn-danger ' %>
   </div>
-  
+
+  <!-- Upload multiple files -->
+  <a class="btn btn-soial-icon btn-facebook" onclick="showUploadArea()"><i class="fa fa-upload"></i></a>
   <div class="form-group col-sm-12 col-md-6">
-    <%= form_for listing, url: "/listing/#{listing.id}", :class => "profile-row-item", method: "post" do |f| %>
+
+    <!-- Upload Files: Hidden by default -->
+    <div id='upload-files-area' class='container' style='display: none;'>
+     <div class='panel panel-default'>
+       <a href='#' onclick='hideUploadArea()' class='close file-upload-close' aria-label='close'>&times;</a>
+       <div class='panel-heading'><strong>Upload Files</strong></div>      
+       <div class='panel-body'>
+
+         <!-- Form -->
+         <h4>Select files from your computer</h4>
+         <%= form_for listing, url: "/listing/#{listing.id}", :html => {:class => 'profile-row-item', :id=>'js-upload-form', :enctype=>'multipart/form-data'}, method: "post" do |f| %>
+         <div class='form-inline'>
+          <div class='form-group'>
+
+            <%= f.file_field :image, :html => {:name => 'files[]', :id=>'js-upload-files'} %> 
+          </div>
+          <%= f.submit "Upload Images", :html => {:class=>'btn btn-sm btn-primary', :id=>'js-upload-submit'}%>
+
+        </div>
+      </div>
+
+      <!-- Drop Zone -->
+      <h4>Or drag and drop files below</h4>
+      <div class='upload-drop-zone' id='drop-zone'>
+        Just drag and drop files here
+      </div>
+
+      <!-- Progress Bar -->
+      <div class='progress'>
+        <div class='progress-bar' role='progressbar' aria-valuenow='60' aria-valuemin='0' aria-valuemax='100' style='width: 60%;'>
+          <span class='sr-only'>60 Complete</span>
+        </div>
+      </div>
+
+      <!-- Upload Finished -->
+      <div class='js-upload-finished'>
+        <h3>Processed files</h3>
+        <div class='list-group'>
+          <a href='#' class='list-group-item list-group-item-success'><span class='badge alert-success pull-right'>Success</span>image-01.jpg</a>
+          <a href='#' class='list-group-item list-group-item-success'><span class='badge alert-success pull-right'>Success</span>image-02.jpg</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> <!-- /container -->
+<!-- End of File Upload -->
+<% end %>
 
 
-    <%= f.file_field :image %> 
 
-    <%= f.submit "edit" %>
+
+  <!-- div class="form-group col-sm-12 col-md-6">
+    <%#= form_for listing, url: "/listing/#{listing.id}", :class => "profile-row-item", method: "post" do |f| %>
+
+
+    <%#= f.file_field :image %> 
+
+    <%#= f.submit "edit" %>
   </div>
 </div>
-<% end %>
+<% end %> -->
 </div>
 <% end %>
 </div>
 <% end %>
 </div>
 </div>
-<% end %>
+
 
 </div>   
 

@@ -271,3 +271,61 @@ html {
   padding-right: 0px;
   height: 500px;
 }
+
+// Drag and Drop upload */
+// /* layout.css Style */
+#upload-files-area{
+  margin-top: 1%;
+}
+
+.upload-drop-zone {
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
+  
+}
+
+// /* skin.css Style*/
+.upload-drop-zone {
+  color: #ccc;
+  border-style: dashed;
+  border-color: #ccc;
+  line-height: 200px;
+  text-align: center
+}
+.upload-drop-zone.drop {
+  color: #222;
+  border-color: #222;
+}
+
+// /* Footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: white; 
+}
+
+// /* Upload area */
+
+.file-upload-close{
+  margin-right: 1%;
+  margin-top: 1%; 
+}
+
+.main-content{  
+  justify-content: center;
+  text-align: center;
+}
+
+.main-content img{
+  margin-right: 2%;
+  margin-left: 2%;
+
+}
+
+.first-content-row{
+  margin-top: 2%;
+}

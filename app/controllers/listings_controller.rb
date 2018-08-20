@@ -33,7 +33,7 @@ class ListingsController < ApplicationController
       listing.user_id = current_user.id       
       
       # listing.amenities     
-      byebug
+      
       if listing.save
          #listing.amenities.create(params[:amenity])    
          params[:amenity].each do |amenity|
