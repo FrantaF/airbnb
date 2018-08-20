@@ -1,7 +1,7 @@
 class Listing < ApplicationRecord
    #Db
    belongs_to :user
-   has_many :amenities   
+   has_many :amenities, dependent: :destroy   
    has_many :bookings, dependent: :destroy
    accepts_nested_attributes_for :amenities
 

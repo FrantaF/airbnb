@@ -81,29 +81,29 @@
           </div>        
 
           <!-- Amenities -->
-       <!--  <div class="form-group" style="display: inline-block;">       
-          <div class="row justify-content-center" style="margin-top: 2%;">
+          <div class="form-group" style="display: inline-block;">       
+            <div class="row justify-content-center" style="margin-top: 2%;">
 
-            <div class="col-sm-12">
-              <label>What amenities are available to guests</label>
+              <div class="col-sm-12">
+                <label>What amenities are available to guests</label>
+              </div>
+
+              <% @tags = generate_amenities %>
+              <% @tags.each do |tag| %>
+              <%= raw tag %>
+              <% end %>
+
             </div>
+          </div>        
 
-            <%# @tags = generate_amenities %>
-            <%# @tags.each do |tag| %>
-            <%#= raw tag %>
-            <%# end %>
+          <button type="submit" class="btn btn-primary">Create listing</button>
 
-          </div>
-        </div>   -->      
+          <%end%>  
+        </div>
 
-        <button type="submit" class="btn btn-primary">Create listing</button>
-
-        <%end%>  
       </div>
-
     </div>
   </div>
-</div>
 
 
 

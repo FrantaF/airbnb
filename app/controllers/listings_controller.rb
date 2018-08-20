@@ -33,8 +33,13 @@ class ListingsController < ApplicationController
       listing.user_id = current_user.id       
       
       # listing.amenities     
-
-      if listing.save          
+      byebug
+      if listing.save
+         #listing.amenities.create(params[:amenity])    
+         params[:amenity].each do |amenity|
+            amenity = Amenity.new(listing_id: listing.id, amenity: amenity)      
+            amenity.save
+         end         
          current_user.update(:role => 1)
          redirect_to user_profile_path(current_user.id)
       end
@@ -70,7 +75,7 @@ end
 private
 
 def listing_params      
-   params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope, :number_of_guests, :image)
+   params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope, :number_of_guests, :image, :amenity)
 end   
 
 end

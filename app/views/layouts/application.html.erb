@@ -22,75 +22,71 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <% if signed_in? %>
-   <!--  <form class="form-inline my-2 my-lg-0 ml-3">
-     <input class="form-control mr-sm-2" type="search" placeholder="Your ideal place ..." aria-label="Search">
-     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-   </form> -->
-   
-   <%= form_for :user, url: listings_search_path, id: "listings", :html => {:class => "form-inline my-2 my-lg-0 ml-3"} do |form| %>   
-   
-   <input class="form-control mr-sm-2" type="search" placeholder="Your ideal place ..." aria-label="Search" name="user[location]">
-   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <% if signed_in? %> 
+    
+    <%= form_for :user, url: listings_search_path, id: "listings", :html => {:class => "form-inline my-2 my-lg-0 ml-3"} do |form| %>   
+    
+    <input class="form-control mr-sm-2" type="search" placeholder="Your ideal place ..." aria-label="Search" name="user[location]">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
-   <% end %>
+    <% end %>
 
-   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-    <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
 
-      <li class="nav-item mr-3">
-        <%= button_to 'Book place', listings_search_box_path, method: :post, :class => 'btn btn-light btn-outline-success' %>
-      </li>            
+        <li class="nav-item mr-3">
+          <%= button_to 'Book place', listings_search_box_path, method: :post, :class => 'btn btn-light btn-outline-success' %>
+        </li>            
 
-      <li class="nav-item mr-3">
-        <%= button_to 'Host property', host_property_path, method: :post, :class => 'btn btn-light' %>
-      </li>      
+        <li class="nav-item mr-3">
+          <%= button_to 'Host property', host_property_path, method: :post, :class => 'btn btn-light' %>
+        </li>      
 
-      <li class="nav-item mr-3">
-        <%= button_to 'Profile', user_profile_path(current_user.id), method: :post, :class => 'btn btn-light'%>           
-      </li>    
+        <li class="nav-item mr-3">
+          <%= button_to 'Profile', user_profile_path(current_user.id), method: :post, :class => 'btn btn-light'%>           
+        </li>    
 
-      <li class="nav-item">
-        <%= button_to 'Sign out', custom_sign_out_path, method: :delete, :class => 'btn btn-light'%>    
-        <%end%> 
-      </li>     
-    </ul>
+        <li class="nav-item">
+          <%= button_to 'Sign out', custom_sign_out_path, method: :delete, :class => 'btn btn-light'%>    
+          <%end%> 
+        </li>     
+      </ul>
 
-  </div>
-</nav>
-
-<!-- Background pictures -->
-<% if @display_carousel %>
-<div class="carousel slide carousel-fade" data-ride="carousel">
-
-  <!-- Wrapper for slides -->
-  <div id="div-wrapper" class="carousel-inner" role="listbox">
-    <div id="carousel1" class="item active">
     </div>
-    <div id="carousel2" class="item">
-    </div>
-    <div id="carousel3" class="item">
+  </nav>
+
+  <!-- Background pictures -->
+  <% if @display_carousel %>
+  <div class="carousel slide carousel-fade" data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div id="div-wrapper" class="carousel-inner" role="listbox">
+      <div id="carousel1" class="item active">
+      </div>
+      <div id="carousel2" class="item">
+      </div>
+      <div id="carousel3" class="item">
+      </div>
     </div>
   </div>
-</div>
-<% else %>
+  <% else %>
 
-<div class="background-image"></div>
+  <div class="background-image"></div>
 
-<% end %>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
-<script type="text/javascript">
-  $(document).ready(function () {
-    $('.carousel').carousel({
-      interval: 3000
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.carousel').carousel({
+        interval: 3000
+      });
+
+      $('.carousel').carousel('cycle');
     });
-
-    $('.carousel').carousel('cycle');
-  });
-</script>
+  </script>
 
 </body>
 </html>

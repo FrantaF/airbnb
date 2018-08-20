@@ -52,7 +52,7 @@ def generate_amenities
       button = "<div class='form-group' style='margin-right: 2%'>
       <label> #{option} </label>
       <div class='radio'>
-      <input type='radio' name='amenity[option#{counter}]'>
+      <input type='radio' value=#{option} name='amenity[option#{counter}]'>
       </div>
       </div>"
       buttons.push(button)
