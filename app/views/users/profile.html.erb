@@ -63,26 +63,89 @@
 
     <% @listings.each do |listing| %>    
     
-    <%= style_listings(listing).html_safe %>
-    
+    <%= style_listings(listing).html_safe %>   
+
+    <!-- Render booking form -->
+
+    <div class="login-form">
+     <div class="container">   
+      <div class="login-form profile-booking">
+       <div class="main-div">
+        <div class="panel">
+
+          <h2 style="color: #ff6969; font-size: 25px;"><strong>Price per night: <%= listing.price_per_night %> </strong></h2>           
+
+        </div>
+        <%= form_for :booking, url: create_booking_path(listing.id), id: "create-booking", class: "listings" do |form| %>
+
+        <div class="form-group" style="margin-top: 2%;">
+
+          <div class="row">
+
+           <div class="col-md-6 form-group">
+            <label>Check In</label>
+            <input type="date" class="form-control" id="inputCheckin" name="booking[start_date]">
+          </div>
+
+          <div class="col-md-6 form-group">
+            <label>Check Out</label>
+            <input type="date" class="form-control" id="inputCheckout" name="booking[end_date]">
+          </div>
+
+        </div>
+
+     <!--  <div class="form-group">
+        <label for="selectGuests">Guests</label>
+        <select class="form-control" id="selelctGuests" name="booking[num_guests]">
+         <option>1</option>
+         <option>2</option>
+         <option>3</option>
+         <option>4</option>
+         <option>5</option>
+      </select>          
+    </div> -->
+
+    <input type="hidden" value="<%=current_user.id%>" name="booking[user_id]">
+    <input type="hidden" value="<%= listing.id%>" name="booking[listing_id]">      
+    <button type="submit" class="btn btn-primary">Book</button>
+
+    <%end%>  
+  </div>
+</div>
+</div>
+</div>
+</div>
+<!-- End of booking form -->
+</div>
+
+<% if current_user.id = params[:id] %>
+<div class="row col-sm-12">
+
+  <div class="form-group col-sm-12 col-md-6">
     <%= button_to 'Delete Listing', listings_delete_path(id: listing.id), method: :post, :class => 'btn btn-danger ' %>
-
-
-    <!-- PARAMS ID IS WRONG!!! NOT ID FOR LISTING -->
+  </div>
+  
+  <div class="form-group col-sm-12 col-md-6">
     <%= form_for listing, url: "/listing/#{listing.id}", :class => "profile-row-item", method: "post" do |f| %>
+
 
     <%= f.file_field :image %> 
 
     <%= f.submit "edit" %>
-    
-    <% end %>
-    <% end %>
   </div>
+</div>
+<% end %>
+</div>
+<% end %>
+</div>
+<% end %>
+</div>
 </div>
 <% end %>
 
 </div>   
-</div>
+
+
 
 
 

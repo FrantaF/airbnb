@@ -8,15 +8,17 @@ module ListingsHelper
    <div class='col-sm-12'>
    <div class='card'>      
    <img class='card-img-top listing-pic-on-profile-pg' src='#{listing.image}' style='' />      
-   <div class='card-body'>
+   <div class='row card-body'>
    <div class='col-md-6'>
    <p class='card-text'>#{listing.description} <br/> <a href='/listing/#{listing.id}'>View property</a></p>
    </div>
-   <div class='col-md-6'>"""
-   # STOP THE STRING HERE, RENDER RUBY CODE IN VIEW
-   # RENDER THE REST OF THE STRINGTHROUGH ANOTHER METHOD
-   #<%= render partial: 'listings/create_booking/' %>
-   """<div class='form-group' style='margin-top: 2%;'> <div class='row'>
+   <div class='col-md-6'>"""   
+
+   return styled_listing
+end
+
+def render_booking_form
+   styled_string = """<div class='form-group' style='margin-top: 2%;'> <div class='row'>
 
    <div class='col-md-6 form-group'>
    <label>Check In</label>
@@ -37,8 +39,7 @@ module ListingsHelper
    </div>
    <hr>
    """
-
-   return styled_listing
+   return styled_string
 end
 
 

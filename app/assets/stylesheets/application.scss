@@ -234,7 +234,7 @@ html {
 
 
 // Making login/search/user_edit forms narrower
-// Then create_listing form
+
 .login-booking .main-div {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 20px;  
@@ -252,4 +252,21 @@ html {
 
 .login-booking{
   padding-top: 6%!important;
+}
+
+// Amandements for booking form on profile pg
+.profile-booking .main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 20px;  
+  border-style: solid;
+  border-width: thin;
+  margin: auto;
+  min-width: 360px!important;  
+  max-width: 45%; 
+  padding: 10px 10px 10px 10px;  
+}
+
+.listing-profile-img{
+  padding-left: 0px;
+  padding-right: 0px;
 }

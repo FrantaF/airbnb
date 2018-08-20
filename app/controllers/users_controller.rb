@@ -54,6 +54,8 @@ class UsersController < Clearance::UsersController
       else
          @has_listings = false
       end
+
+      @booking_form = render_booking_form
       
    end
 
