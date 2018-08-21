@@ -7,12 +7,12 @@ class Booking < ApplicationRecord
 
    #Validators
    validate :check_overlapping_dates
-   validate :check_max_guests
+   #validate :check_max_guests
    validates :start_date, presence: true
    validates :end_date, presence: true
    validates :total_price, presence: true
 
-   def check_overlapping_dates  
+   def check_overlapping_dates       
       bookings = Booking.where(listing_id: self.listing_id)
       bookings.each do |old_booking|         
          if overlap?(self, old_booking)
@@ -30,6 +30,13 @@ class Booking < ApplicationRecord
    x_end = Date.parse(x.end_date)
    y_start = Date.parse(y.start_date)
    y_end = Date.parse(y.end_date)
+
+   #validate start_date > current.date and start<end
+   if x_start < Date.now
+      return true
+   elsif x_end > x_end
+      return true
+   end 
 
    (x_start - y_end) * (y_start - x_end) > 0
 end
