@@ -32,11 +32,11 @@ class Booking < ApplicationRecord
    y_end = Date.parse(y.end_date)
 
    #validate start_date > current.date and start<end
-   if x_start < Date.now
-      return true
-   elsif x_end > x_end
-      return true
-   end 
+   # if x_start < Date.now
+   #    return true
+   # elsif x_end > x_end
+   #    return true
+   # end 
 
    (x_start - y_end) * (y_start - x_end) > 0
 end
