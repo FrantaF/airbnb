@@ -37,7 +37,8 @@ class ListingsController < ApplicationController
       if listing.save
          #listing.amenities.create(params[:amenity])    
          params[:amenity].each do |amenity|
-            amenity = Amenity.new(listing_id: listing.id, amenity: amenity)      
+            
+            amenity = Amenity.new(listing_id: listing.id, amenity: params[:amenity][amenity])      
             amenity.save
          end         
          current_user.update(:role => 1)
@@ -50,6 +51,7 @@ class ListingsController < ApplicationController
 
    def show
       @listing = Listing.find(params[:id])
+      @amenities = Amenity.where("listing_id = ?", "#{@listing.id}")
       render "listing"
    end
 
