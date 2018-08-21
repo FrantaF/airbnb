@@ -1,7 +1,11 @@
 module ListingsHelper
 
    def style_listings(listing)   
-
+      amenities = Amenity.where("listing_id = ?", "#{listing.id}")
+      string_array = ""
+      amenities.each do |amenity|
+         string_array = string_array + amenity.amenity.to_s + ", "
+      end
    # NOTE: LISTING.IMAGE IS AN ARRAY!!! YOU ARE ONLY DISPLAYING THE FIRST PICTURE
    styled_listing = """
    <div class='row align-items-center justify-content-center' style='margin-top: 5%; margin-bottom: 5%;'>
@@ -14,7 +18,10 @@ module ListingsHelper
    </div>
    <div class='col-md-6'>
    <div class='row col-sm-12'>
-   <div>  #{listing.property_scope} with a maximum of #{listing.number_of_guests} guests </div>   
+   <div>  #{listing.property_scope} with a maximum of #{listing.number_of_guests} guests </div>
+   <div class='row col-sm-12'>
+   <div> Amenities available to guests: #{string_array} </div>   
+   </div>
    </div>
    <p class='card-text'>#{listing.description} <br/> <a href='/listing/#{listing.id}'>View property</a></p>
    </div>
