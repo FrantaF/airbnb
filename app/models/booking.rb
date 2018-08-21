@@ -7,7 +7,7 @@ class Booking < ApplicationRecord
 
    #Validators
    validate :check_overlapping_dates
-   # validate :check_max_guests
+   validate :check_max_guests
    validates :start_date, presence: true
    validates :end_date, presence: true
    validates :total_price, presence: true
@@ -35,7 +35,7 @@ class Booking < ApplicationRecord
 end
 
 def check_max_guests
-   max_guests = listing.guest_number
+   max_guests = listing.number_of_guests
    return if num_guests < max_guests
    errors.add(:max_guests, "The guest number exeeded ")
 end
