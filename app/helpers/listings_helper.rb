@@ -10,7 +10,7 @@ module ListingsHelper
    <img class='card-img-top listing-pic-on-profile-pg' src='#{listing.image}' style='' />      
    <div class='row card-body'>
    <div class='row col-sm-12'>
-   <h3> Property title not yet implemented in Db </h3>
+   <h3> #{listing.title} </h3>
    </div>
    <div class='col-md-6'>
    <div class='row col-sm-12'>

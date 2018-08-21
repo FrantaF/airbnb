@@ -75,7 +75,7 @@ end
 private
 
 def listing_params      
-   params.require(:user).permit(:description, :country, :city, :street, :price_per_night, :property_type, :property_scope, :number_of_guests, :image, :amenity)
+   params.require(:user).permit(:title, :description, :country, :city, :street, :price_per_night, :property_type, :property_scope, :number_of_guests, :image, :amenity)
 end   
 
 end
