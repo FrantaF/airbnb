@@ -30,7 +30,8 @@
         <h2 style="color: #ff6969; font-size: 25px;"><strong>Price per night: <%= Listing.find(params[:id]).price_per_night %> </strong></h2>           
 
       </div>
-      <%= form_for :booking, url: create_booking_path(params[:id]), id: "create-booking", class: "listings" do |form| %>
+      <!-- create_booking_path(params[:id]) -->
+      <%= form_for :booking, url: braintree_new_path(params[:id]), id: "create-booking", class: "listings" do |form| %>
 
       <div class="form-group" style="margin-top: 2%;">
 
@@ -58,7 +59,7 @@
          <option>5</option>
       </select>          
     </div> -->
-
+    <input type="hidden" value="" name="booking[total_price]">
     <input type="hidden" value="<%=current_user.id%>" name="booking[user_id]">
     <input type="hidden" value="<%= params[:id]%>" name="booking[listing_id]">      
     <button type="submit" class="btn btn-primary">Book</button>
