@@ -58,11 +58,11 @@ class ListingsController < ApplicationController
    def search_results             
 
    #search through city        
-   @listings = Listing.where("city LIKE ?", "%#{params[:user][:locaiton]}%")                              
+   @listings = Listing.where("city LIKE ?", "%#{params[:user][:location]}%")                              
    
    #if nothing is found, search through country
    if @listings[0] == nil
-      @listings = Listing.where("country LIKE ?", "%#{params[:user][:locaiton]}%")                        
+      @listings = Listing.where("country LIKE ?", "%#{params[:user][:location]}%")                        
    end
 
    #if nothing is sitll found, return the whole table  

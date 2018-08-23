@@ -54,8 +54,6 @@ Rails.application.routes.draw do
     get "/create_booking/:id" => "bookings#create"
   end
 
-
-
   delete "/log_out" => "sessions#destroy", as: :custom_sign_out
 
   resources :users, only: [:create, :edit, :update] do

@@ -49,7 +49,7 @@
 
       </div>
 
-     <!--  <div class="form-group">
+      <div class="form-group">
         <label for="selectGuests">Guests</label>
         <select class="form-control" id="selelctGuests" name="booking[num_guests]">
          <option>1</option>
@@ -57,16 +57,19 @@
          <option>3</option>
          <option>4</option>
          <option>5</option>
-      </select>          
-    </div> -->
-    <input type="hidden" value="" name="booking[total_price]">
-    <input type="hidden" value="<%=current_user.id%>" name="booking[user_id]">
-    <input type="hidden" value="<%= params[:id]%>" name="booking[listing_id]">      
-    <button type="submit" class="btn btn-primary">Book</button>
+         <option>6</option>
+         <option>7</option>
+         <option>8</option>
+       </select>          
+     </div>
+     <input type="hidden" value="" name="booking[total_price]">
+     <input type="hidden" value="<%=current_user.id%>" name="booking[user_id]">
+     <input type="hidden" value="<%= params[:id]%>" name="booking[listing_id]">      
+     <button type="submit" class="btn btn-primary">Book</button>
 
-    <%end%>  
-  </div>
-</div>
+     <%end%>  
+   </div>
+ </div>
 </div>
 </div>
 </div>

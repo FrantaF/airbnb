@@ -43,6 +43,12 @@ gem "mini_magick"
 gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 gem 'braintree', '~> 2.90'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+gem 'rspec', '~> 3.8'
+gem 'rspec-given', '~> 3.8'
+gem 'redis', '~> 4.0', '>= 4.0.2'
+gem 'sidekiq', '~> 5.2', '>= 5.2.1'
+gem 'sinatra', '~> 2.0', '>= 2.0.3'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

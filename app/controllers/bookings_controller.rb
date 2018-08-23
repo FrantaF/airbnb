@@ -2,11 +2,13 @@ require 'date'
 class BookingsController < ApplicationController
    before_action :require_login 
 
-   def create      
-      byebug
+   def create            
       params[:booking] = session["booking"]
-      @booking = Booking.new(booking_params)
-      
+      byebug
+      #vaidate guest number      
+      if session["booking"]["num_guests"].to_i < Listing.find(session["booking"]["listing_id"]).number_of_guests
+         @booking = Booking.new(booking_params)      
+      end     
       
       
       if @booking.save
@@ -21,6 +23,7 @@ class BookingsController < ApplicationController
          # redirect_to user_listing_path(@booking.user_id, @booking.listing_id)
          redirect_to :root, :flash => { :error => "Transaction failed. Please try again." }
       end
+
    end
 
    def destroy
@@ -41,7 +44,7 @@ class BookingsController < ApplicationController
    private
 
    def booking_params
-      params.require(:booking).permit(:user_id, :listing_id, :start_date, :end_date :total_price)
+      params.require(:booking).permit(:user_id, :listing_id, :start_date, :end_date, :total_price)
    end
 
 end
