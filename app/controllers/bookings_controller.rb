@@ -4,23 +4,22 @@ class BookingsController < ApplicationController
 
    def create            
       params[:booking] = session["booking"]
-      byebug
-      #vaidate guest number      
+      
+      #validate guest number      
       if session["booking"]["num_guests"].to_i < Listing.find(session["booking"]["listing_id"]).number_of_guests
          @booking = Booking.new(booking_params)      
       end     
       
-      
-      if @booking.save
+      if @booking == nil
+         redirect_to :root, :flash => { :error => "Transaction failed. Please try again." }
+
+      elsif @booking.save
          # PostmanWorker.perform_later(current_user.id, params[:listing_id], @booking.id)
 
          #pass on the booking id for retrieval of payment info         
          redirect_to :root, :flash => { :success => "Transaction successful!" }         
+
       else
-         # @listing = Listing.find(@booking.listing_id)
-         # @errors = @booking.errors.full_messages
-         # render 'listings/show'
-         # redirect_to user_listing_path(@booking.user_id, @booking.listing_id)
          redirect_to :root, :flash => { :error => "Transaction failed. Please try again." }
       end
 
