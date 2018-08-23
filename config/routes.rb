@@ -55,6 +55,7 @@ Rails.application.routes.draw do
   end
 
   delete "/log_out" => "sessions#destroy", as: :custom_sign_out
+  get "/sign_in" => "sessions#sign_in", as: :custom_sign_in
 
   resources :users, only: [:create, :edit, :update] do
     resource :password,
